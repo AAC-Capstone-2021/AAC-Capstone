@@ -1,27 +1,26 @@
 {% extends 'form_entry_base.html' %}
 {% load bootstrap4 %}
 {% block inner_content %}
-<h3>SLO Summary</h3>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/form_entry_base.css' %}">
+<h1>SLO Summary</h1>
+<a role="button" id="outline" href="{% url 'makeReports:add-slo' report=rpt.pk %}">Add SLO</a>
+<a  role="button" id="outline" href="{% url 'makeReports:import-slo' report=rpt.pk %}?dp={{rpt.degreeProgram.pk}}&year={{rpt.year}}">Import SLO</a>
 <div class="container" style="max-width:95%">
     <div class="row">
         <div class="col">
             {% include 'makeReports/toDoList.html' %}
         </div>
     </div>
-    <div class="row">
-            <div class="col">      
-    <div class="row">
-        <div class="col">
-                <a  role="button" class="btn btn-primary" href="{% url 'makeReports:add-slo' report=rpt.pk %}"><button>Add SLO</button></a>
-    <a  role="button" class="btn btn-primary" href="{% url 'makeReports:import-slo' report=rpt.pk %}?dp={{rpt.degreeProgram.pk}}&year={{rpt.year}}"><button>Import SLO</button></a>
-        </div>
-    </div>
-    <div class="row">
+
       <div class="col">
 <table class="table">
     <tbody>
             <tr>
-                <td>Goal</td><td>Bloom's Taxonomy</td><td>{% if slo_list.0.report.degreeProgram.level == "GR" %}Graduate Goals{% endif %}</td><td>Options</td>
+                <td><b>Goal</b></td>
+                <td><b>Bloom's Taxonomy</b></td>
+                <td><b>{% if slo_list.0.report.degreeProgram.level == "GR" %}Graduate Goals{% endif %}</b></td>
+                <td><b>Options</b></td>
             </tr>
             {% for slo in slo_list %}
             <tr>
@@ -93,7 +92,7 @@
 <br>
 <div class="row mt-5">
         <div class="col">
-        <a  role="button" class="btn btn-primary" href="{% url 'makeReports:assessment-summary' report=rpt.pk %}">Next</a>
+        <a   class="form-button" id = "outline" role="button" href="{% url 'makeReports:assessment-summary' report=rpt.pk %}">Next</a>
         </div>
 </div>
 </div>

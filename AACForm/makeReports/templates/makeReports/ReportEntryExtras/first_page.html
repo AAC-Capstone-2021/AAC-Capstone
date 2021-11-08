@@ -1,13 +1,20 @@
 {% extends 'form_entry_base.html' %}
 {% load bootstrap4 %}
+{% load static %}
 {% block inner_content %}
-<h3>Report Initial Information</h3>
+
+<div class = "form-header">
+<h1>Report Initial Information</h1>
+<p>Initial report information requires an author and the date range of the data in years.</p>
+</div>
+
 <form method="post" class="form" enctype="multipart/form-data" style="max-width:450px">
     {% csrf_token %} 
-    {{ form.author.label }}: {{ form.author }} <br>
-    {{ form.date_range_of_reported_data.label }}: {{ form.date_range_of_reported_data }} 
+    <strong>{{ form.author.label }}:</strong> {{ form.author }} <br>
+    <strong>{{ form.date_range_of_reported_data.label }}:</strong> {{ form.date_range_of_reported_data }} <br>
     {% buttons %}
-        <button type="submit" class="btn btn-primary">Next</button>
+        <button type="submit" class="form-button">Next</button>
     {% endbuttons %}
 </form>
+
 {% endblock %}
