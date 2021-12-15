@@ -42,22 +42,13 @@
                     {{ slo.accreditingBody }}
                 </td>
                 <td>
-                   {% if slo.slo.numberOfUses is 1 %}
                     <a  role="button" class="btn btn-primary" href="{% url 'makeReports:edit-new-slo' report=rpt.pk sloIR=slo.pk %}">Edit SLO</a>
                     <a  role="button" class="btn btn-primary" href="{% url 'makeReports:delete-new-slo' report=rpt.pk pk=slo.pk %}">Delete SLO</a>
                     <a  role="button" class="btn btn-primary" href="{% url 'makeReports:add-assessment-slo' report=rpt.pk slo=slo.pk %}">Add New Assessment</a>
                     <a  role="button" class="btn btn-primary" href="{% url 'makeReports:import-assessment-slo' report=rpt.pk slo=slo.pk %}?dp={{rpt.degreeProgram.pk}}&year={{rpt.year}}&slo={{slo.pk}}">Import Assessment</a>
                     <a  role="button" class="btn btn-primary" href="{% url 'makeReports:add-edit-redirect' report=rpt.pk slopk=slo.pk %}">Decisions and Actions</a>
 
-                   {% else %}
-                    <a  role="button" class="btn btn-primary" href="{% url 'makeReports:edit-impt-slo' report=rpt.pk sloIR=slo.pk %}">Edit SLO</a>
-                    <a  role="button" class="btn btn-primary" href="{% url 'makeReports:delete-impt-slo' report=rpt.pk pk=slo.pk %}">Delete SLO</a>
-                    <a  role="button" class="btn btn-primary" href="{% url 'makeReports:add-assessment-slo' report=rpt.pk slo=slo.pk %}">Add New Assessment</a>
-                    <a  role="button" class="btn btn-primary" href="{% url 'makeReports:import-assessment-slo' report=rpt.pk slo=slo.pk %}?dp={{rpt.degreeProgram.pk}}&year={{rpt.year}}&slo={{slo.pk}}">Import Assessment</a>
-                    <a  role="button" class="btn btn-primary" href="{% url 'makeReports:add-edit-redirect' report=rpt.pk slopk=slo.pk %}">Decisions and Actions</a>
-
-
-                    {% endif %}
+                   
                 </td>
             </tr>
             {% empty %}

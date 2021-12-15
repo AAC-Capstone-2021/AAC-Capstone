@@ -308,7 +308,7 @@ class EditNewSLO(DeptReportMixin,FormView):
             HttpResponse : response of page to request
         """
         try:
-            self.sloInRpt = SLOInReport.objects.get(pk=self.kwargs['sloIR'], slo__numberOfUses=1)
+            self.sloInRpt = SLOInReport.objects.get(pk=self.kwargs['sloIR'])
         except SLOInReport.DoesNotExist:
             raise Http404("SLO matching URL does not exist.")
         return super(EditNewSLO,self).dispatch(request,*args,**kwargs)
